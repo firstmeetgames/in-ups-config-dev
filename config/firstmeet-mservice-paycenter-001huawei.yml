@@ -1,0 +1,86 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-mservice-paycenter-huawei
+    contextPath: /
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
+    customized.enable: true
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
+    manager.enable: false
+    manager.context-path: '/data/webapps/manager'
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+    url: jdbc:mysql://192.168.1.220:3306/pay_center_huawei?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+    username: kaifa
+    password: chujian8
+    druid:
+      initial-size: 50
+      min-idle: 50
+      max-active: 600
+      max-wait: 2000  #配置获取连接等待超时的时间
+      time-between-eviction-runs-millis: 60000 #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      min-evictable-idle-time-millis: 300000 #配置一个连接在池中最小生存的时间，单位是毫秒
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filters: stat,slf4j
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  jackson:
+    serialization:
+      indent_output: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+huaweipay:
+  payment:
+    private.key.string: 'MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDuMnUM11wRvK182sye8tZpI+pXKiDEoHjcxRShp9pG20FPLe1pgOvSOmwkxUe9B84VbcV051rlpxOI3FgoY7fYZCUyg7MetJGXPbV8PQQ6ZJs+nW4kWNO4Nb5VhOrVFbafmFpjNnTe06a6yag2+vl1TvVV3+FOXJH9gGL7gUXTU52fJcfM63ZgOTRxDRGu2CWUkcvhzR7zBDsPlxsycnN0ecU//mtefH6XtsI6w1BtRiCP1VbPKtrywiGaeyw980b2JeJWf1s4iOiySs3teQwafx+qJGvS/Zfw5EigyidQOyt7cfXH+PK73pOyKJ/V8/IJsmJSAYi9KzhuTtQG2CaRAgMBAAECggEABqcPXJZTtpWa0VDBlANjgGB9yiUtsNwr//t7n+eymZXEUVAusCqG+5JA5LaDUkjaZUARepo/EEiuK51+01L0pqUmYk6qFSaVJeCV9eQ03uYiLVmjgr2d3ShYGmaZ0e13MiYkyR5TXYlS/+bDrVRtXOzBfp5f+iqs86PvL8fModInWamAv3JIlYiy+31T3QutXzvFtOWC9WygA82wihFNsXs61upYlt4ttFL+cB2vOwm13K3k1Ae8XwmbyIqY7aLzMohkrUKRuQQXWlxiSZKyjrZ0CZgDj1+GBE64/us3Kv1mVu7NzijtFgp4XZ2QXohoTTHC5bZ5CKNq3POGpzhvwQKBgQD9PWXOnPfEmKJQ+tXSn1veNAgs/jlhrpFspBYmP9+cXDbqHOW0bzForZqFdn/FBdEj8teiREBbU178QUmOkND6tdxWy79mKwYLSvAAJReSP/ASPySW6SFrYHQMMMOuKJWSOvxwE6UJLxWwoh4l6vlwjdSo7Yxps0/Rj0PXFrBysQKBgQDwyxYokppNBF9O/UL/cOTI5t9UWpYwjsGFryagv+VFF2XUPv2Up/YOjcqFcdDGM9axxHvXn6i5hbDCaPZjenxo4+nHuy14vQvuNhuMR+bwRupY6143kSiJYuW2dwYYD9fnJLYa8TkKuCbMxxPmze+aLDkuX4cucVgkH3t+EPUp4QKBgQDTxUVey8sy34VVfP3UnalAn3h6z7oCou4/0NQo9l8zrbXKf5HkGtxRsmO22kqs41lq24hRzQuYk5aqEprFmvr3vZ9eAhK0CKSMSwV6yYn1pnxHdgBOJvToi4dgLmNlP9EcsTErNHJdxL85r8jQYrhn1GOTRNuYBPhpwYm00+eIcQKBgEuD1VIqD9wBeAZkpMNJW2aqCPYCZsGZs5VCRcH6DGPrn5K9onchaahMzWumMwxFq5oafaA0wQxVogaGNmciPawDdgieafdIilpNe7w1vHY0N0BlqCmTC3xymIntr+qR5Wrm93lhlzsGX5yu/k3O3cqi/dfOO63T/AlwGiGCHfDhAoGBANCOaHQM4Q0pCykg8zjDn1B/SfEXvh73V7iXLm49ngpHiLV/km2P074+v5bwZRTI9XV1uE4lNi96rXYqL5F7MU2qhkq1jzkIQoRUUa9so3XHe79AyzQzX/odVVlogk3iBs/FQvXQhBw3JyGhLlvvq+hRCZsTTC1AI9HphedUnowN'
+    charset: UTF-8
+    key.algorithm: RSA
+    signature.algorithm: SHA1WithRSA
+
+chujian:
+   token:
+     key:
+       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
+   mta:
+     log:
+       enable: true
+       path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
+   uid:
+     enable: true
+
+
