@@ -68,9 +68,6 @@ management:
 paycenter.vivopay.host.url: 'https://upsdev.16801.com/vivopay'
 
 vivopay:
-  cpId: 'd3213115bfd5b17695f1'
-  appId: '4e1e45f6b7babb892f3139d83ae1143b'
-  appKey: '1ffe91e050f54ea0769140e6f2b69112'
   getorder.url: 'https://pay.vivo.com.cn/vcoin/trade'
   verify.url: 'https://pay.vivo.com.cn/vcoin/queryv2'
   notify.url: '${paycenter.vivopay.host.url}/vivopay/callback'
@@ -79,11 +76,10 @@ chujian:
    token:
      key:
        public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
-   mta:
-     log:
-       enable: true
-       path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
-   uid:
-     enable: true
+   drools:
+      rule:
+        path: 'classpath*:rules/**/client-config-dev.xls' #Can configure absolute path: file:/data/rules/**/*.drl
 
-
+uid.grpc:
+  host: 'uidgenerator.ups.firstmeet'
+  port: 6565
