@@ -30,7 +30,7 @@ spring:
     platform: mysql
     url: jdbc:mysql://192.168.1.220:3306/pay_center_chujian_zfb?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
     username: kaifa
-    password: AQAIqUu64z0+2z3AVgEgIWqeBE51aP4vVNHaxShTvz6gIcSoB5nX2jc3aVtcRHi5IY4ykzDA8jZ3893YbR/d7OIU/WvFlml9PdwJXIi4TC6HBZyrEbEQVMm9g4e6axGO/uY46R7TEkn8rM8wkc6CmdOemF4ekK3brPBcwnYJhoNJI9UlQ4ayg9zMYVFOVG28NSq84htRKgJSLolATtdaEJPl/LpveVvByMk3hcVXBVHYz+FzyxCgZnWMM6kU25qx9vbzvr3ChBplZBaPvtamuoZr5GOTaNeYTIOs6/6pFsRlB7PkD5fbQNKpBwENv5TyKt+JXMfPiy4zWYjszGBUQs2+RQSdDD5gIyrf6KFHNXsg8dx1XOUCE5JFtDiKUNDmuFI=
+    password: '{cipher}AQAIqUu64z0+2z3AVgEgIWqeBE51aP4vVNHaxShTvz6gIcSoB5nX2jc3aVtcRHi5IY4ykzDA8jZ3893YbR/d7OIU/WvFlml9PdwJXIi4TC6HBZyrEbEQVMm9g4e6axGO/uY46R7TEkn8rM8wkc6CmdOemF4ekK3brPBcwnYJhoNJI9UlQ4ayg9zMYVFOVG28NSq84htRKgJSLolATtdaEJPl/LpveVvByMk3hcVXBVHYz+FzyxCgZnWMM6kU25qx9vbzvr3ChBplZBaPvtamuoZr5GOTaNeYTIOs6/6pFsRlB7PkD5fbQNKpBwENv5TyKt+JXMfPiy4zWYjszGBUQs2+RQSdDD5gIyrf6KFHNXsg8dx1XOUCE5JFtDiKUNDmuFI='
     druid:
       initial-size: 50
       min-idle: 50
