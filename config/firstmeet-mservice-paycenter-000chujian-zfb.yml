@@ -7,7 +7,7 @@ server:
   port: 8443
   http-port: 8080
   servlet:
-    application-display-name: firstmeet-mservice-paycenter-vivo
+    application-display-name: firstmeet-mservice-paycenter-chujian-zfb
     contextPath: /
   tomcat:
     basedir: "./"
@@ -28,9 +28,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     platform: mysql
-    url: jdbc:mysql://192.168.1.220:3306/pay_center_vivo?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+    url: jdbc:mysql://192.168.1.220:3306/pay_center_chujian_zfb?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
     username: kaifa
-    password: chujian8
+    password: '{cipher}AQAIqUu64z0+2z3AVgEgIWqeBE51aP4vVNHaxShTvz6gIcSoB5nX2jc3aVtcRHi5IY4ykzDA8jZ3893YbR/d7OIU/WvFlml9PdwJXIi4TC6HBZyrEbEQVMm9g4e6axGO/uY46R7TEkn8rM8wkc6CmdOemF4ekK3brPBcwnYJhoNJI9UlQ4ayg9zMYVFOVG28NSq84htRKgJSLolATtdaEJPl/LpveVvByMk3hcVXBVHYz+FzyxCgZnWMM6kU25qx9vbzvr3ChBplZBaPvtamuoZr5GOTaNeYTIOs6/6pFsRlB7PkD5fbQNKpBwENv5TyKt+JXMfPiy4zWYjszGBUQs2+RQSdDD5gIyrf6KFHNXsg8dx1XOUCE5JFtDiKUNDmuFI='
     druid:
       initial-size: 50
       min-idle: 50
@@ -65,25 +65,21 @@ management:
       exposure:
         include: '*'
 
-paycenter.vivopay.host.url: 'https://upsdev.16801.com/vivopay'
+paycenter.chujian.host.url: 'https://upsdev.16801.com/chujianpay_zfb'
 
-vivopay:
-  getorder.url: 'https://pay.vivo.com.cn/vcoin/trade'
-  verify.url: 'https://pay.vivo.com.cn/vcoin/queryv2'
-  notify.url: '${paycenter.vivopay.host.url}/vivopay/callback'
+alipay:
+  payment:
+    url: 'https://openapi.alipay.com/gateway.do'
+    notify.url: '${paycenter.chujian.host.url}/chujianpay/zfb/callback'
+    return.url: 'TestSDK://TestSDK.13cd.com'
 
 chujian:
-<<<<<<< HEAD
-   token:
-     key:
-       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
    drools:
-=======
-    drools:
->>>>>>> f8d5410b294d7de7e1abe9f8ff1c14e0be247923
-      rule:
-        path: 'classpath*:rules/**/client-config-dev.xls' #Can configure absolute path: file:/data/rules/**/*.drl
+     rule:
+       path: 'classpath*:rules/**/client-config-dev.xls' #Can configure absolute path: file:/data/rules/**/*.drl
 
 uid.grpc:
   host: 'uidgenerator.ups.firstmeet'
   port: 6565
+
+
