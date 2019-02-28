@@ -30,7 +30,7 @@ spring:
     platform: mysql
     url: jdbc:mysql://192.168.1.220:3306/pay_center_chujian_zfb?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
     username: kaifa
-    password: chujian8
+    password: AQAIqUu64z0+2z3AVgEgIWqeBE51aP4vVNHaxShTvz6gIcSoB5nX2jc3aVtcRHi5IY4ykzDA8jZ3893YbR/d7OIU/WvFlml9PdwJXIi4TC6HBZyrEbEQVMm9g4e6axGO/uY46R7TEkn8rM8wkc6CmdOemF4ekK3brPBcwnYJhoNJI9UlQ4ayg9zMYVFOVG28NSq84htRKgJSLolATtdaEJPl/LpveVvByMk3hcVXBVHYz+FzyxCgZnWMM6kU25qx9vbzvr3ChBplZBaPvtamuoZr5GOTaNeYTIOs6/6pFsRlB7PkD5fbQNKpBwENv5TyKt+JXMfPiy4zWYjszGBUQs2+RQSdDD5gIyrf6KFHNXsg8dx1XOUCE5JFtDiKUNDmuFI=
     druid:
       initial-size: 50
       min-idle: 50
@@ -65,7 +65,7 @@ management:
       exposure:
         include: '*'
 
-paycenter.chujian.host.url: 'https://upsdev.16801.com/chujianpay'
+paycenter.chujian.host.url: 'https://upsdev.16801.com/chujianpay_zfb'
 
 alipay:
   payment:
@@ -74,9 +74,6 @@ alipay:
     return.url: 'TestSDK://TestSDK.13cd.com'
 
 chujian:
-   token:
-     key:
-       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
    drools:
      rule:
        path: 'classpath*:rules/**/client-config-dev.xls' #Can configure absolute path: file:/data/rules/**/*.drl
