@@ -30,7 +30,7 @@ spring:
     platform: mysql
     url: jdbc:mysql://192.168.1.220:3306/pay_center_yyb?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
     username: kaifa
-    password: chujian8
+    password: '{cipher}AQDOU4Ujh3h0/jv4MvSOzyqiZi8ks40J+SbdQTSn/f5+3ewMmp1xC966H1iMfOE1RIOrQC+AJHIFtbiVooovKXj7DpgXFxh/eGD4wr4xhqf0XUkdsxJEYH465vmgMT97qAmahJj8TPHgdRLIczYu/k1z+jATkjUCOXUSlYKOwkZ7giUy06YbHgtPL79QOoJfzM0BAGivd+1HcdYQc1bdhZcqqBKLRj2Fb+Q7eADyoO4OMg2CWZeJ3NOLhhg6OHkrzca9v2fyyRmj8v0PsdK+nfPsc2RvmfZMk0wNLksfWBLN8NV3uT2Tyfbp1Qh571XndLrmZ1yBqqqEeW0k0qbogvMQm+DhL5Rfzq6iZmkoB+k9GlGH9kC1vwaIoDAEhqnqiEI='
     druid:
       initial-size: 50
       min-idle: 50
